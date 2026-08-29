@@ -11,6 +11,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { Providers } from "@/components/providers";
 import appCss from "../styles/app.css?url";
 
 export const Route = createRootRoute({
@@ -57,12 +58,12 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<HeadContent />
 			</head>
 			<body className="min-h-dvh flex flex-col">
-				{children}
+				<Providers>{children}</Providers>
 				<Scripts />
 			</body>
 		</html>
