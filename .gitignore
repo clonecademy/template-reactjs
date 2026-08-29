@@ -1,0 +1,7 @@
+# NAME: Git Ignore
+# PATH: /.gitignore
+
+.DS_Store
+node_modules/
+.pnpm-store/
+lefthook-local.*
