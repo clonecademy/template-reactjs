@@ -8,5 +8,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-	return <div>Home</div>;
+	return (
+		<div className="flex flex-col items-center justify-center grow">Home</div>
+	);
 }

@@ -11,6 +11,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import appCss from "../styles/app.css?url";
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -26,6 +27,7 @@ export const Route = createRootRoute({
 				title: "TanStack Start Starter",
 			},
 		],
+		links: [{ rel: "stylesheet", href: appCss }],
 	}),
 	component: RootComponent,
 	notFoundComponent: NotFoundPage,
@@ -37,7 +39,7 @@ export const Route = createRootRoute({
 
 function NotFoundPage() {
 	return (
-		<div>
+		<div className="flex flex-col items-center justify-center grow">
 			<h1>Error 404: Page Not Found</h1>
 			<p>You navigated to a webpage that does not exist.</p>
 			<Link to="/">Click here to go back.</Link>
@@ -59,7 +61,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 			<head>
 				<HeadContent />
 			</head>
-			<body>
+			<body className="min-h-dvh flex flex-col">
 				{children}
 				<Scripts />
 			</body>
