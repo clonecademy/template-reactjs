@@ -3,6 +3,8 @@
 
 import {
 	createRootRoute,
+	ErrorComponent,
+	type ErrorComponentProps,
 	HeadContent,
 	Link,
 	Outlet,
@@ -27,6 +29,10 @@ export const Route = createRootRoute({
 	}),
 	component: RootComponent,
 	notFoundComponent: NotFoundPage,
+	// TODO: Override error boundary per route (remove if not needed).
+	errorComponent: ({ error, reset }: ErrorComponentProps) => {
+		return <ErrorComponent error={error} />;
+	},
 });
 
 function NotFoundPage() {
