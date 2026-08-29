@@ -4,6 +4,7 @@
 import {
 	createRootRoute,
 	HeadContent,
+	Link,
 	Outlet,
 	Scripts,
 } from "@tanstack/react-router";
@@ -25,7 +26,18 @@ export const Route = createRootRoute({
 		],
 	}),
 	component: RootComponent,
+	notFoundComponent: NotFoundPage,
 });
+
+function NotFoundPage() {
+	return (
+		<div>
+			<h1>Error 404: Page Not Found</h1>
+			<p>You navigated to a webpage that does not exist.</p>
+			<Link to="/">Click here to go back.</Link>
+		</div>
+	);
+}
 
 function RootComponent() {
 	return (
